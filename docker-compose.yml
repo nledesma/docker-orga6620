@@ -1,0 +1,11 @@
+version: "3"
+services:
+  gxemul-host:
+    container_name: gxemulHost
+    build:
+      context: .
+      dockerfile: orgaCompus.Dockerfile
+    volumes:
+      - .:/usr/src
+    command: bash -c "./startGxemul.tcl && tail -f /dev/null"
+    privileged: true
