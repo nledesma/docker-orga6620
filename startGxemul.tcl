@@ -25,8 +25,8 @@ expect "root@:~#"
 
 
 #Tunel SSH
-send "ssh -R $hostPort:$hostToGuestIp:$guestPort $hostUser@$guestToHostIp\r"
 send "rm /root/.ssh/known_hosts\r"
+send "ssh -R $hostPort:$hostToGuestIp:$guestPort $hostUser@$guestToHostIp\r"
 set timeout 10
 expect "Are you sure you want to continue connecting (yes/no)?" { send "yes\r" }
 expect "*?password:" { send "$hostUserPass\r" }

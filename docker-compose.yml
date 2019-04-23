@@ -7,5 +7,5 @@ services:
       dockerfile: orgaCompus.Dockerfile
     volumes:
       - .:/usr/src
-    command: bash -c "./startGxemul.tcl && tail -f /dev/null"
+    command: bash -c "tail -f /dev/null"
     privileged: true
