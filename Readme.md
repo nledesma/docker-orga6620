@@ -1,4 +1,4 @@
-# Entorno dockerizado para ejecutar gxemul en entornos como OSX o Windows
+# Entorno dockerizado para ejecutar gxemul en OSX o Windows
 
 ### Dependencias
 
