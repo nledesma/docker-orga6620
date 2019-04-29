@@ -9,17 +9,18 @@
 La carpeta gxemul debe tener los archivos necesarios para poder ejecutar gxemul, de acuerdo a la siguiente jerarquía de carpetas:
 
 ```
-|_gxemul
-| |_ gxemul # Ejecutable de gxemul   
-| |_ MD5SUMS
-| |_ netbsd-pmax.img # Imagen de NetBSD
-|
-|_ config.tcl
-|_ docker-compose.yml
-|_ orgaConpus.Dockerfile
-|_ Readme.md
-|_ startAll.sh
-|_ startGxemul.tcl
+/
+├─ code/ # Carpeta de código vacía
+├─ gxemul/
+│   ├─ gxemul # Ejecutable de gxemul   
+│   ├─ MD5SUMS
+│   └─ netbsd-pmax.img # Imagen de NetBSD
+├─ config.tcl
+├─ docker-compose.yml
+├─ orgaConpus.Dockerfile
+├─ Readme.md
+├─ startAll.sh
+└─ startGxemul.tcl
 
 ```
 
@@ -39,12 +40,16 @@ $ ./startAll.sh
 $ docker exec -it gxemulHost bash
 ```
 
-3. Una vez conectado al container, conectarse por el túnel ssh abierto:
+3. Una vez conectado al container, se puede ejecutar el siguiente script:
 
 ```
-$ ssh -p 2222 root@127.0.0.1
+$ ./copyAndConnect.tcl
 ```
 
-Mientras está el container andando, se pueden crear o pegar archivos `.c` o de cualquier tipo en el directorio raíz, y automáticamente van a estar disponibles en el Ubuntu virtual que funciona como host. 
+Este comando copia todos los archivos `.S` contenidos en la carpeta code a gxemul, y se conecta a gxemul.
+Una vez ejecutado el script, basta moverse al directorio code, y ya se puede compilar el assembly.
 
-Basta con utilizar comandos como `scp` para llevar esos archivos a gxemul, de la misma manera que se abre la conexión ssh en los pasos **2** y **3**. 
+4.
+```
+$ cd code
+```

@@ -10,3 +10,6 @@ set guestToHostIp "172.20.0.1"
 set hostPort "2222"
 set guestPort "22"
 set hostToGuestIp "127.0.0.1"
+
+set hostCodeFolder "code"
+set guestCodeFolder "code"
