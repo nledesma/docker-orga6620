@@ -11,10 +11,12 @@ set timeout -1
 
 expect "Password:" { send "$guestUserPass\r" }
 
-expect "#"
+expect ":/usr/src#"
 
 send "ssh -p $hostPort $guestUser@$hostToGuestIp\r"
 
 expect "Password:" { send "$guestUserPass\r" }
+
+expect "root@:~#" { send "cd code/\r" }
 
 interact
